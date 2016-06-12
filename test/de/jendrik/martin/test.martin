@@ -1,0 +1,15 @@
+#keywords: module private class extends implements let io
+
+module test
+
+class Person(name :: String, age :: Int)
+
+class User(id :: Int, name, age) extends Person(name, age)
+	io
+	#printName :: Void
+	printName = print name
+
+
+main :: List String -> Unit
+main args =
+	let p = User(6, "Alice", 25)
