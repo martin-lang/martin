@@ -25,7 +25,7 @@ import scala.util.parsing.combinator.{JavaTokenParsers, RegexParsers}
 import scala.util.parsing.input.CharSequenceReader
 
 import de.jendrik.martin.Token.Token
-import net.arya.utf.Implicits.StringToUnicode
+//import net.arya.utf.Implicits.StringToUnicode
 
 object Lexer extends RegexParsers {
 
@@ -84,8 +84,6 @@ object Lexer extends RegexParsers {
 
 	def `extends` = "extends" ^^^ Token.`extends`
 
-	//def `io` = "io" ^^^ Token.`io`
-
 	def `var` = "var" ^^^ Token.`var`
 
 	def `:` = ":" ^^^ Token.`:`
@@ -114,8 +112,6 @@ object Lexer extends RegexParsers {
 
 	def `§` = "§" ^^^ Token.`§`
 
-	//def tab = "\t".r ^^^ Token.Tab
-
 	def indentation: Parser[Token.Tabs] = "indentation" !!! {
 		"""\r?\n[\t]*""".r ^^ { whitespace =>
 			val nTabs = whitespace.length - 1
@@ -133,7 +129,7 @@ object Lexer extends RegexParsers {
 
 	def floatLiteral = """[+-]?[0-9]+[.,]([0-9]*|[0-9]+[eE][0-9]+)""".r ^^  {case value ⇒ Token.FloatLiteral(value.toDouble)}
 
-	def stringLiteral: Parser[Token.StringLiteral] = (JavaTokens.stringLiteral ^^ { case str ⇒ Token.StringLiteral(str.toUtf32String)}).asInstanceOf[Lexer.Parser[Token.StringLiteral]]
+	def stringLiteral: Parser[Token.StringLiteral] = (JavaTokens.stringLiteral ^^ { case str ⇒ Token.StringLiteral(str)}).asInstanceOf[Lexer.Parser[Token.StringLiteral]]
 
 	def operator = """(\+|\-|\*|/|^|&|\||<|<=|>|>=)""".r ^^ {str ⇒ Token.Operator(str)}
 

@@ -19,8 +19,6 @@ package de.jendrik.martin
 	You should have received a copy of the GNU Affero General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
-import net.arya.utf.Utf32String
-
 object AST {
 
 	sealed trait AST
@@ -39,7 +37,7 @@ object AST {
 	case object This extends Expr
 	case class IntLiteral(value: Long) extends Expr
 	case class FloatLiteral(value: Double) extends Expr
-	case class StringLiteral(value: Utf32String) extends Expr
+	case class StringLiteral(value: String) extends Expr
 	case class Id (name: String) extends Expr with CanBeMember
 	case class MethodCall(methodName: Id, args: Expr*) extends Expr with CanBeMember {
 		//override def name: String = methodName.name

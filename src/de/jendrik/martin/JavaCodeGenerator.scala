@@ -130,7 +130,7 @@ object JavaCodeGenerator {
 			case This                        ⇒ "this"
 			case IntLiteral(v)               ⇒ v.toString
 			case FloatLiteral(v)             ⇒ v.toString
-			case StringLiteral(s)            ⇒ StringContext.treatEscapes(s.toString)
+			case StringLiteral(s)            ⇒ StringContext.treatEscapes(s)
 			case Id(name)                    ⇒ name
 			case MethodCall(name, args @ _*) ⇒ name.name.toString + args.map(generate).mkString("(", ",", ")")
 			case mc: MemberCall              ⇒ generateMemberCall(mc)

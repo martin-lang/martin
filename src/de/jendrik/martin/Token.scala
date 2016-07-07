@@ -1,7 +1,5 @@
 package de.jendrik.martin
 
-import net.arya.utf.Utf32String
-
 /*
 	MARTIN PROGRAMMING LANGUAGE
 	martin-lang.pro
@@ -52,6 +50,6 @@ object Token {
 	case class  IntLiteral(value: Long)           extends Token
 	case class  FloatLiteral(value: Double)       extends Token
 
-	case class  StringLiteral(value: Utf32String) extends Token
+	case class  StringLiteral(value: String) extends Token
 
 }
