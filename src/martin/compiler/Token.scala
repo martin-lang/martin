@@ -1,4 +1,4 @@
-package de.jendrik.martin
+package martin.compiler
 
 /*
 	MARTIN PROGRAMMING LANGUAGE

@@ -1,4 +1,4 @@
-package de.jendrik.martin
+package martin.compiler
 
 /*
 	MARTIN PROGRAMMING LANGUAGE
@@ -24,8 +24,6 @@ import better.files._
 object TestMain {
 
 	def main (args: Array[String]) {
-		1 === 1
-		("": Any) === 1
 
 		Lexer(args.headOption.getOrElse(file"./test/de/jendrik/martin/test.martin".lines.mkString("\n"))) match {
 			case Left(msg) ⇒ println(msg)
@@ -42,8 +40,4 @@ object TestMain {
 		}
 	}
 
-
-	implicit class TypesafeEquals[A](val self: A) extends AnyVal {
-		def ===(that: A) = self == that
-	}
 }

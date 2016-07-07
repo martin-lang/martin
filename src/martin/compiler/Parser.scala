@@ -1,4 +1,4 @@
-package de.jendrik.martin
+package martin.compiler
 
 /*
 	MARTIN PROGRAMMING LANGUAGE
@@ -22,8 +22,10 @@ package de.jendrik.martin
 import scala.util.parsing.combinator.Parsers
 import scala.util.parsing.input.{NoPosition, Position, Reader}
 
-import de.jendrik.martin.AST.{AST, ClassDef, Expr, FloatLiteral, Id, IntLiteral, MartinFile, MemberCall, MethodCall, MethodDef, ModuleDef, Newline, StringLiteral, Type, TypedValue, VarDef}
-import de.jendrik.martin.Token.{Dedent, Indent, Operator, Token, `(`, `)`, `,`, `:`, `=`, `[`, `]`, `class`, `extends`, `module`, `var`, `§`}
+import AST.{AST, ClassDef, Expr, FloatLiteral, Id, IntLiteral, MartinFile, MemberCall, MethodCall, MethodDef, ModuleDef, Newline, StringLiteral, Type, TypedValue, VarDef}
+import Token.{Dedent, Indent, Operator, Token, `(`, `)`, `,`, `:`, `=`, `[`, `]`, `class`, `extends`, `module`, `var`, `§`}
+import martin.compiler.AST.{AST, Expr, FloatLiteral, Id, IntLiteral, MartinFile, MemberCall, MethodCall, Newline, StringLiteral, Type, TypedValue}
+import martin.compiler.Token.{Dedent, Indent, Token, `(`, `)`, `,`, `:`, `=`, `[`, `]`, `class`, `extends`, `module`, `var`, `§`}
 
 
 object Parser extends Parsers {

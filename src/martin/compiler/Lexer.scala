@@ -1,4 +1,4 @@
-package de.jendrik.martin
+package martin.compiler
 
 /*
 	MARTIN PROGRAMMING LANGUAGE
@@ -24,7 +24,7 @@ import scala.annotation.tailrec
 import scala.util.parsing.combinator.{JavaTokenParsers, RegexParsers}
 import scala.util.parsing.input.CharSequenceReader
 
-import de.jendrik.martin.Token.Token
+import martin.compiler.Token.Token
 //import net.arya.utf.Implicits.StringToUnicode
 
 object Lexer extends RegexParsers {

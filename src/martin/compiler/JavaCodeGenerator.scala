@@ -1,4 +1,4 @@
-package de.jendrik.martin
+package martin.compiler
 
 /*
 	MARTIN PROGRAMMING LANGUAGE
@@ -29,7 +29,8 @@ import scala.collection.JavaConverters._
 import scala.collection.mutable
 
 import better.files.File
-import de.jendrik.martin.AST.{AST, ClassDef, FloatLiteral, Id, IntLiteral, MartinFile, MemberCall, MethodCall, MethodDef, ModuleDef, StringLiteral, Taggable, This, Type, VarDef}
+import AST.{AST, ClassDef, FloatLiteral, Id, IntLiteral, MartinFile, MemberCall, MethodCall, MethodDef, ModuleDef, StringLiteral, Taggable, This, Type, VarDef}
+import martin.compiler.AST.{AST, ClassDef, MartinFile, MemberCall, MethodDef, Taggable, This, Type, VarDef}
 
 object JavaCodeGenerator {
 
