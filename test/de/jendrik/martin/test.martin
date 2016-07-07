@@ -1,15 +1,15 @@
-#keywords: module private class extends implements let io
+#keywords: module class extends implements var if then else while do
+#predefined tags: private protected public io
 
 module test
 
-class Person(name :: String, age :: Int)
+class Person(name: String, age: Int)
 
-class User(id :: Int, name, age) extends Person(name, age)
-	io
-	#printName :: Void
-	printName = print name
+	#§io printName(): Void = print(name)
+
+	magic(): Int = 42
 
 
-main :: List String -> Unit
-main args =
-	let p = User(6, "Alice", 25)
+main(args: Array[String]): Void =
+	var p: Person = Person.new("Alice", 1)
+	System.out.print(p.magic())
