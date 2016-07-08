@@ -9,12 +9,13 @@ is a general purpose object-oriented programming language I initially created ju
 
 All predefined types are capitalized.
 Martin only supports this set of Java's primitives:
-Java | Martin
----  | ---
-`long` | `Int`
-`double` | `Float`
-`boolean`  | `Bool`
-`void` | `Void`
+
+| Java | Martin
+| ---  | ---
+| `long` | `Int`
+| `double` | `Float`
+| `boolean`  | `Bool`
+| `void` | `Void`
 
 ###Ranges
 
