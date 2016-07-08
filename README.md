@@ -21,12 +21,12 @@ Java | Martin
 In Future releases of Martin, variables and parameters may restrict the range of an `Int` or `Float`. This will be proven at compile time if possible, and will generate checks to throw an exception at runtime
 
 ###Union and Intersection Types
-In the future, Martin  will support union and intercetion types.
+In the future, Martin  will support union and intersecetion types.
 
 ###Tags
 
 In Java, `@Override` is an annotation, while it's a keyword in Scala and C++; `@inline` is an annotation in Scala and a keyword in C++.
-Martin features a unification of annotations and modifiers called tags, because there's no real difference between them.
+Martin features a unification of annotations and modifiers called tags because there's no real difference between them.
 Tags are prepended with the `§` symbol (`U+00A7 SECTION SIGN`). The tags `private protected public final abstract` are compiled to Java modifiers.
 
 ###Top-level methods
@@ -52,4 +52,4 @@ public class Person {
 ```
 
 ###Multiple Inheritance
-Martin will support multiple inheritance in the future, avoiding the diamond problem by forcing the subclass to override methds inherited from more than one class. The overriden method may delegate to a parent method
+Martin will support multiple inheritance in the future, avoiding the diamond problem by forcing the subclass to override methods inherited from more than one class. The overridden method may delegate to a parent method
