@@ -49,7 +49,7 @@ object AST {
 	case object Newline extends AST
 	case class Type(name: Id, typeargs: Type*) extends AST
 	case class MartinFile (contents: AST*) extends AST
-	case class VarDef (name: Id, tpe: Type, value: Expr) extends AST
+	case class VarDef (isVal: Boolean, name: Id, tpe: Type, value: Expr) extends AST
 	case class ModuleDef(name: Id) extends AST
 	case class TypedValue(id: Id, tpe: Type) extends AST
 	case class ClassDef(tags: List[Id], name: Id, params: Seq[TypedValue], parent: Option[Id], parentArgs: Seq[Expr], contents: AST*) extends AST with Taggable

@@ -22,10 +22,8 @@ package martin.compiler
 import scala.util.parsing.combinator.Parsers
 import scala.util.parsing.input.{NoPosition, Position, Reader}
 
-import AST.{AST, ClassDef, Expr, FloatLiteral, Id, IntLiteral, MartinFile, MemberCall, MethodCall, MethodDef, ModuleDef, Newline, StringLiteral, Type, TypedValue, VarDef}
-import Token.{Dedent, Indent, Operator, Token, `(`, `)`, `,`, `:`, `=`, `[`, `]`, `class`, `extends`, `module`, `var`, `§`}
-import martin.compiler.AST.{AST, Expr, FloatLiteral, Id, IntLiteral, MartinFile, MemberCall, MethodCall, Newline, StringLiteral, Type, TypedValue}
-import martin.compiler.Token.{Dedent, Indent, Token, `(`, `)`, `,`, `:`, `=`, `[`, `]`, `class`, `extends`, `module`, `var`, `§`}
+import martin.compiler.AST.{AST, ClassDef, Expr, FloatLiteral, Id, IntLiteral, MartinFile, MemberCall, MethodCall, MethodDef, ModuleDef, Newline, StringLiteral, Type, TypedValue, VarDef}
+import martin.compiler.Token.{Dedent, Indent, Operator, Token, `(`, `)`, `,`, `:`, `=`, `[`, `]`, `class`, `extends`, `module`, `val`, `var`, `§`}
 
 
 object Parser extends Parsers {
@@ -82,7 +80,9 @@ object Parser extends Parsers {
 
 	def methodContent: Parser[AST] = "methodContent" !!! (varDef | methodCall | memberCall | numericExpr)
 
-	def varDef = "letDef" !!! (((`var` ~> id) ~ (`:` ~> tpe) ~ (`=` ~> expr)) ^^ { case name ~ tpe ~ expr ⇒ VarDef(name, tpe, expr) })
+	def varDef = "varDef" !!! (((`var` ~> id) ~ (`:` ~> tpe) ~ (`=` ~> expr)) ^^ { case name ~ tpe ~ expr ⇒ VarDef(false, name, tpe, expr) })
+
+	def valDef = "valDef" !!! (((`val` ~> id) ~ (`:` ~> tpe) ~ (`=` ~> expr)) ^^ { case name ~ tpe ~ expr ⇒ VarDef(true, name, tpe, expr) })
 
 	def methodCall: Parser[MethodCall] = "methodCall" !!! (id ~ (open ~> repsep(expr, accept(`,`)) <~ closing) ^^ {
 		case name ~ (args: List[_]) ⇒ MethodCall(name, args: _*)

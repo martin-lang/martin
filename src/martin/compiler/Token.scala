@@ -27,6 +27,7 @@ object Token {
 	case object `class`                           extends Token
 	case object `extends`                         extends Token
 	case object `var`                             extends Token
+	case object `val`                             extends Token
 	case object `:`                               extends Token
 	case object `.`                               extends Token
 	case object `=`                               extends Token

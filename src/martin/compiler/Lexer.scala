@@ -45,7 +45,7 @@ object Lexer extends RegexParsers {
 	}
 
 	def tokens: Parser[List[Token]] = phrase(rep(
-		`module` | `class` | `extends` | `var` | `:` | `.` | `=` | `→` | `(` | `)` | `[` | `]` | `{` | `}` | `,` | `§` | comment | integerLiteral | floatLiteral | stringLiteral | identifier | indentation | newline
+		`module` | `class` | `extends` | `var` | `val` | `:` | `.` | `=` | `→` | `(` | `)` | `[` | `]` | `{` | `}` | `,` | `§` | comment | integerLiteral | floatLiteral | stringLiteral | identifier | indentation | newline
 	)) ^^ (raw ⇒ processIndentations(raw))
 
 	private def processIndentations(tokens: List[Token], indents: List[Int] = List(0)): List[Token] = {
@@ -85,6 +85,8 @@ object Lexer extends RegexParsers {
 	def `extends` = "extends" ^^^ Token.`extends`
 
 	def `var` = "var" ^^^ Token.`var`
+
+	def `val` = "val" ^^^ Token.`val`
 
 	def `:` = ":" ^^^ Token.`:`
 

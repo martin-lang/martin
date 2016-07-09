@@ -29,8 +29,7 @@ import scala.collection.JavaConverters._
 import scala.collection.mutable
 
 import better.files.File
-import AST.{AST, ClassDef, FloatLiteral, Id, IntLiteral, MartinFile, MemberCall, MethodCall, MethodDef, ModuleDef, StringLiteral, Taggable, This, Type, VarDef}
-import martin.compiler.AST.{AST, ClassDef, MartinFile, MemberCall, MethodDef, Taggable, This, Type, VarDef}
+import martin.compiler.AST.{AST, ClassDef, FloatLiteral, Id, IntLiteral, MartinFile, MemberCall, MethodCall, MethodDef, ModuleDef, StringLiteral, Taggable, This, Type, VarDef}
 
 object JavaCodeGenerator {
 
@@ -102,6 +101,7 @@ object JavaCodeGenerator {
 
 		def generateVarDef (v: VarDef): String = {
 			val s = new mutable.StringBuilder()
+			if (v.isVal) s ++= "final "
 			s ++= generateType(v.tpe)
 			s ++= " "
 			s ++= v.name.name
